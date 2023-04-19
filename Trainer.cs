@@ -12,7 +12,7 @@ namespace mis_221_pa_5_swbroadhead
         string email;
         string address;
         static private int count;
-        public Trainer(string id, string name, string email, string address){
+        public Trainer(string name, string id, string email, string address){
             this.id = id;
             this.name = name;
             this.email = email;
@@ -54,7 +54,7 @@ namespace mis_221_pa_5_swbroadhead
         }
         public override string ToString()
         {
-            return $"{name}'s ID is {id}, their email is {email} and they live at {address}";
+            return $"{name}#{id}#{email}#{address}";
         }
     }
 }

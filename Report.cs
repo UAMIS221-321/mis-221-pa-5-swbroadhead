@@ -7,6 +7,6 @@ namespace mis_221_pa_5_swbroadhead
 {
     public class Report
     {
-        
+
     }
 }

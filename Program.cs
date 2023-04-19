@@ -1,6 +1,6 @@
 ﻿//Start Main
+using mis_221_pa_5_swbroadhead;
 string userChoice = GetUserChoice();
-
 //End Main
 
 static string GetUserChoice(){
@@ -31,6 +31,9 @@ static bool IsValidChoice(string userChoice){
     else return false;
 }
 
-static void Route(string userChoice){
+static void Route(string userChoice)
+{
+if (userChoice == "1"){
     
+}
 }
