@@ -7,21 +7,21 @@ namespace mis_221_pa_5_swbroadhead
 {
     public class Trainer
     {
-        string id;
-        string name;
-        string email;
-        string address;
-        static private int count;
-        public Trainer(string name, string id, string email, string address){
+        private int id;
+         private string name;
+         private string email;
+        private string address;
+         static private int count;
+        public Trainer(int id, string name, string email, string address){
             this.id = id;
             this.name = name;
             this.email = email;
             this.address = address;
         }
-        public string GetID(){
+        public int GetID(){
             return id;
         }
-        public void SetID(string id){
+        public void SetID(int id){
             this.id = id;
         }
         public string GetName(){
@@ -54,7 +54,7 @@ namespace mis_221_pa_5_swbroadhead
         }
         public override string ToString()
         {
-            return $"{name}#{id}#{email}#{address}";
+            return$"{name}#{id}#{email}#{address}";
         }
     }
 }

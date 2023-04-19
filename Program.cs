@@ -34,6 +34,12 @@ static bool IsValidChoice(string userChoice){
 static void Route(string userChoice)
 {
 if (userChoice == "1"){
-    
+    TrainerMenu();
 }
 }
+static void TrainerMenu(){
+    System.Console.WriteLine("Enter 1 to Add Trainers");
+    System.Console.WriteLine("Enter 2 to Edit Trainers");
+    System.Console.WriteLine("Enter 3 to Delete Trainers");
+     string choice = Console.ReadLine();
+      }
