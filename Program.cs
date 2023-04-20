@@ -1,5 +1,12 @@
 ﻿//Start Main
 using mis_221_pa_5_swbroadhead;
+using Utility;
+TrainerUtility util = new TrainerUtility();
+Trainer[] trainers = new Trainer[100];
+Trainer[] trainers1 = util.GetAllTrainersFromFile(trainers);
+for(int i = 0; i <Trainer.GetCount(); i++){
+    System.Console.WriteLine(trainers[i].ToString());
+}
 string userChoice = GetUserChoice();
 //End Main
 
@@ -42,4 +49,13 @@ static void TrainerMenu(){
     System.Console.WriteLine("Enter 2 to Edit Trainers");
     System.Console.WriteLine("Enter 3 to Delete Trainers");
      string choice = Console.ReadLine();
+     if (choice == "1"){
+        
+     }
+     else if (choice == "2"){
+    
+     }
+     else if (choice == "3"){
+
+     }
       }

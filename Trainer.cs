@@ -54,7 +54,7 @@ namespace mis_221_pa_5_swbroadhead
         }
         public override string ToString()
         {
-            return$"{name}#{id}#{email}#{address}";
+            return$"{id}#{name}#{email}#{address}";
         }
     }
 }
