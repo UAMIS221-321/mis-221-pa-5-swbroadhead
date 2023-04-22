@@ -55,6 +55,9 @@ namespace mis_221_pa_5_swbroadhead
         static public void IncCount(){
             Trainer.trainerCount++;
         }
+        static public void DecCount(){
+            Trainer.trainerCount--;
+        }
         public override string ToString()
         {
             return$"{id}#{name}#{email}#{address}";

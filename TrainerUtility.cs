@@ -13,14 +13,20 @@ namespace Utility
         public TrainerUtility(){
             trainers = new Trainer[100];
         }
+        public Trainer[] GetTrainers(){
+            return trainers;
+        }
         public Trainer[] GetAllTrainersFromFile(){
             StreamReader inFile = new StreamReader("trainer.txt");
             string line = inFile.ReadLine();
             Trainer.SetCount(0);
             while (line != null){
+             if(!string.IsNullOrWhiteSpace(line)){
+                Array.Resize(ref trainers, Trainer.GetCount()+1);
               string[] temp = line.Split('#');
              trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]),temp[1],temp[2],temp[3]);
               Trainer.IncCount();
+             }
               line = inFile.ReadLine();
             }
             inFile.Close();
@@ -76,6 +82,7 @@ namespace Utility
 
             break;
         }
+       }
         if (editTrainer == null){
             System.Console.WriteLine("Trainer ID not found");
             return;
@@ -97,8 +104,28 @@ namespace Utility
             editTrainer.SetAddress(nuAddress);
         }
         System.Console.WriteLine("Trainer Information Updated");
-
-       }
+    }
+    public void RemoveTrainer(){
+        System.Console.WriteLine("Enter the trainer id which you want to remove");
+        int removeID = int.Parse(Console.ReadLine());
+        bool found = false;
+        for (int i = 0; i< Trainer.GetCount();i++){
+            if (trainers[i].GetID() == removeID){
+                found = true;
+                for (int x = 0; x < Trainer.GetCount()-1; x++){
+                    trainers[x] = trainers[x+1];
+                }
+                Trainer.DecCount();
+                break;
+            }
+        }
+        if (found){
+            WriteTrainersToFile();
+            System.Console.WriteLine($"Trainer ID {removeID} has been removed");
+        }
+        else{
+            System.Console.WriteLine("ID not found");
+        }
     }
     }
 }
