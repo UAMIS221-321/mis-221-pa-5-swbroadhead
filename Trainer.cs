@@ -7,11 +7,11 @@ namespace mis_221_pa_5_swbroadhead
 {
     public class Trainer
     {
-        private int id;
+         private int id;
          private string name;
          private string email;
         private string address;
-         static private int count;
+        static private int trainerCount;
         public Trainer(int id, string name, string email, string address){
             this.id = id;
             this.name = name;
@@ -23,6 +23,9 @@ namespace mis_221_pa_5_swbroadhead
         }
         public void SetID(int id){
             this.id = id;
+        }
+         public void IncID(){
+            id++;
         }
         public string GetName(){
             return name;
@@ -44,17 +47,20 @@ namespace mis_221_pa_5_swbroadhead
             this.address = address;
         }
         static public int GetCount(){
-            return Trainer.count;
+            return Trainer.trainerCount;
         }
         static public void SetCount(int count){
-            Trainer.count = count;
+            Trainer.trainerCount = count;
         }
         static public void IncCount(){
-            Trainer.count++;
+            Trainer.trainerCount++;
         }
         public override string ToString()
         {
             return$"{id}#{name}#{email}#{address}";
+        }
+        public string ToFile(){
+            return$"{GetID()}#{GetName()}#{GetEmail()}#{GetAddress()}";
         }
     }
 }
