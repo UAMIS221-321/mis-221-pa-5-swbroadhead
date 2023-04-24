@@ -9,13 +9,14 @@ namespace Utility
     public class TrainerUtility
     {
         public Trainer[] trainers;
-
+//constructor instantiates trainer array when called
         public TrainerUtility(){
             trainers = new Trainer[100];
         }
         public Trainer[] GetTrainers(){
             return trainers;
         }
+        //scans trainer file and populates trainer array
         public Trainer[] GetAllTrainersFromFile(){
             StreamReader inFile = new StreamReader("trainer.txt");
             string line = inFile.ReadLine();
@@ -32,6 +33,7 @@ namespace Utility
             inFile.Close();
             return trainers;
         }
+        //adds new trainer to array
         public void AddNewTrainer(){
           System.Console.WriteLine("Follow the prompt to add a new trainer, enter STOP to stop \n Press any key to continue");
         Console.ReadKey();
@@ -60,6 +62,7 @@ namespace Utility
           Trainer.IncCount();
         }
         }
+        //writes trainer array to file
         public void WriteTrainersToFile(){
             StreamWriter outFile = new StreamWriter("trainer.txt");
             for (int i = 0; i < Trainer.GetCount(); i++){
@@ -71,6 +74,7 @@ namespace Utility
             }
             outFile.Close();
         }
+        //edits trainer based on user input
     public void EditTrainers(){
        System.Console.WriteLine("Enter the trainer ID that you want to edit");
        int editID = int.Parse(Console.ReadLine());
@@ -105,6 +109,7 @@ namespace Utility
         }
         System.Console.WriteLine("Trainer Information Updated");
     }
+    //removes trainer and decreases count for ID 
     public void RemoveTrainer(){
         System.Console.WriteLine("Enter the trainer id which you want to remove");
         int removeID = int.Parse(Console.ReadLine());
@@ -127,5 +132,27 @@ namespace Utility
             System.Console.WriteLine("ID not found");
         }
     }
+    //trainer menu
+    public void TrainerMenu(TrainerUtility util)
+{
+    System.Console.WriteLine("Welcome to the trainer menu");
+    System.Console.WriteLine("Enter 1 to Add Trainers");
+    System.Console.WriteLine("Enter 2 to Edit Trainers");
+    System.Console.WriteLine("Enter 3 to Delete Trainers");
+    System.Console.WriteLine("Enter 4 to return to main menu");
+     string userChoice = Console.ReadLine();
+     if (userChoice == "1"){
+        util.AddNewTrainer();
+     }
+     else if (userChoice == "2"){
+        util.EditTrainers();
+     }
+     else if (userChoice == "3"){
+        util.RemoveTrainer();
+     }
+     else if (userChoice == "4"){
+        System.Console.WriteLine("exiting...");
+     }
+      }
     }
 }
