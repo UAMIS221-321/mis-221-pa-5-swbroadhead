@@ -132,6 +132,7 @@ namespace Utility
             System.Console.WriteLine("ID not found");
         }
     }
+
     //trainer menu
     public void TrainerMenu(TrainerUtility util)
 {
@@ -154,5 +155,7 @@ namespace Utility
         System.Console.WriteLine("exiting...");
      }
       }
+
     }
+
 }

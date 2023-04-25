@@ -1,8 +1,12 @@
 ﻿//Start Main
 using mis_221_pa_5_swbroadhead;
 using Utility;
-ListingUtility list = new ListingUtility();
-//TrainerUtility util = new TrainerUtility();
+TransactionUtility trans = new TransactionUtility();
+
+// ListingUtility list = new ListingUtility();
+TrainerUtility util = new TrainerUtility();
+trans.AddNewTransaction();
+trans.WriteTransactionsToFile();
 // string userChoice = GetUserChoice();
 // while (userChoice != "5"){
 //     userChoice = GetUserChoice();
