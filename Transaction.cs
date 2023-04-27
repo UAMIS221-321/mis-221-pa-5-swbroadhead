@@ -79,5 +79,9 @@ namespace mis_221_pa_5_swbroadhead
     public void SetTrainerID(int trainerID){
         this.trainerID = trainerID;
     }
+        public override string ToString()
+        {
+            return $"{transactionID}#{customerName}#{customerEmail}#{trainingDate}#{trainerName}#{trainerID}#{available}";
+        }
     }
 }

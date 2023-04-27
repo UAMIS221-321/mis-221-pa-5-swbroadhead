@@ -136,5 +136,13 @@ namespace mis_221_pa_5_swbroadhead
         }
         System.Console.WriteLine("Transaction Information Updated");
     } 
+public void ViewAvailableSessions(){
+  System.Console.WriteLine("Available Sessions");
+  for (int i = 0; i < Transaction.GetCount();i++){
+    if (transactions[i].GetAvailability() == true){
+      System.Console.WriteLine(transactions[i].ToString());
+    }
+  }
+}    
 }
 }
