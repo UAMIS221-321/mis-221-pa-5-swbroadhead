@@ -81,6 +81,9 @@ namespace mis_221_pa_5_swbroadhead
     }
         public override string ToString()
         {
+            return $"{transactionID} has been reserved by {customerName} at {customerEmail}. The session date is {trainingDate} and is being run by {trainerName}{trainerID} and is {available} available";
+        }
+        public string ToFile(){
             return $"{transactionID}#{customerName}#{customerEmail}#{trainingDate}#{trainerName}#{trainerID}#{available}";
         }
     }

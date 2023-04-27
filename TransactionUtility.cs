@@ -143,6 +143,28 @@ public void ViewAvailableSessions(){
       System.Console.WriteLine(transactions[i].ToString());
     }
   }
-}    
+}
+   public void RemoveTransaction(){
+        System.Console.WriteLine("Enter the transaction id which you want to remove");
+        int removeID = int.Parse(Console.ReadLine());
+        bool found = false;
+        for (int i = 0; i< Transaction.GetCount();i++){
+            if (transactions[i].GetID() == removeID){
+                found = true;
+                for (int x = 0; x < Listing.GetCount()-1; x++){
+                    transactions[x] = transactions[x+1];
+                }
+                Transaction.DecCount();
+                break;
+            }
+        }
+        if (found){
+            WriteTransactionsToFile();
+            System.Console.WriteLine($"Transaction ID {removeID} has been removed");
+        }
+        else{
+            System.Console.WriteLine("ID not found");
+        }
+    }    
 }
 }

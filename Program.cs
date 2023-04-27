@@ -6,7 +6,7 @@ ListingUtility list = new ListingUtility();
 TrainerUtility util = new TrainerUtility();
 Console.Clear();
 trans.GetAllTransactionsFromFile();
-trans.ViewAvailableSessions();
+trans.RemoveTransaction();
 // util.AddNewTrainer();
 // string userChoice = GetUserChoice();
 // while (userChoice != "5"){
