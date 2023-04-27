@@ -23,7 +23,7 @@ namespace Utility
             Trainer.SetCount(0);
             while (line != null){
              if(!string.IsNullOrWhiteSpace(line)){
-                Array.Resize(ref trainers, Trainer.GetCount()+1);
+              Array.Resize(ref trainers, Trainer.GetCount()+1);    
               string[] temp = line.Split('#');
              trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]),temp[1],temp[2],temp[3]);
               Trainer.IncCount();
@@ -35,7 +35,7 @@ namespace Utility
         }
         //adds new trainer to array
         public void AddNewTrainer(){
-          System.Console.WriteLine("Follow the prompt to add a new trainer, enter STOP to stop \n Press any key to continue");
+      System.Console.WriteLine("Follow the prompt to add a new trainer, enter STOP to stop \n Press any key to continue");
         Console.ReadKey();
         string input = "";
         while(input.ToUpper() != "STOP"){

@@ -16,14 +16,14 @@ namespace mis_221_pa_5_swbroadhead
         private string trainerName;
         private bool available;
         static private int count;
-    public Transaction(int transactionID,string customerName, string customerEmail, DateTime trainingDate, Trainer trainer, bool available){
+    public Transaction(int transactionID,string customerName, string customerEmail, DateTime trainingDate, string trainerName, int trainerID, bool available){
         this.transactionID = transactionID;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.trainingDate = trainingDate;
         this.available = available;
-        this.trainerID = trainer.GetID();
-        this.trainerName = trainer.GetName();
+        this.trainerID = trainerID;
+        this.trainerName = trainerName;
     }
     public int GetID(){
         return transactionID;
@@ -43,16 +43,16 @@ namespace mis_221_pa_5_swbroadhead
     public static int GetCount(){
         return count;
     }
-    public void SetTransactionID(int id){
+    public void SetTransactionID(int transactionID){
         this.transactionID = transactionID;
     }
-    public void SetCustomerName(string name){
+    public void SetCustomerName(string customerName){
         this.customerName = customerName;
     }
-    public void SetCustomerEmail(string email){
+    public void SetCustomerEmail(string customerEmail){
         this.customerEmail = customerEmail;
     }
-    public void SetTrainingDate(DateTime date){
+    public void SetTrainingDate(DateTime trainingDate){
         this.trainingDate = trainingDate;
     }
     public void SetAvailability(bool available){
