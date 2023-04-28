@@ -8,6 +8,10 @@ namespace mis_221_pa_5_swbroadhead
     public class TransactionUtility
     {
     public Transaction[] transactions;
+
+    public TransactionUtility(){
+      transactions = new Transaction[100];
+    }
         public Transaction[] GetAllTransactionsFromFile(){
             StreamReader inFile = new StreamReader("transactions.txt");
             string line = inFile.ReadLine();

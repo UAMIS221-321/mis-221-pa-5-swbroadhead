@@ -76,6 +76,8 @@ namespace Utility
         }
         //edits trainer based on user input
     public void EditTrainers(){
+    string choice = "";
+       while(choice.ToLower() != "stop"){ 
        System.Console.WriteLine("Enter the trainer ID that you want to edit");
        int editID = int.Parse(Console.ReadLine());
        Trainer editTrainer =  null;
@@ -108,6 +110,9 @@ namespace Utility
             editTrainer.SetAddress(nuAddress);
         }
         System.Console.WriteLine("Trainer Information Updated");
+        System.Console.WriteLine("Would you like to edit another trainer? Enter yes to continue or no to return to the menu");
+        choice = Console.ReadLine();
+       }
     }
     //removes trainer and decreases count for ID 
     public void RemoveTrainer(){
@@ -132,29 +137,7 @@ namespace Utility
             System.Console.WriteLine("ID not found");
         }
     }
-
-    //trainer menu
-    public void TrainerMenu(TrainerUtility util)
-{
-    System.Console.WriteLine("Welcome to the trainer menu");
-    System.Console.WriteLine("Enter 1 to Add Trainers");
-    System.Console.WriteLine("Enter 2 to Edit Trainers");
-    System.Console.WriteLine("Enter 3 to Delete Trainers");
-    System.Console.WriteLine("Enter 4 to return to main menu");
-     string userChoice = Console.ReadLine();
-     if (userChoice == "1"){
-        util.AddNewTrainer();
-     }
-     else if (userChoice == "2"){
-        util.EditTrainers();
-     }
-     else if (userChoice == "3"){
-        util.RemoveTrainer();
-     }
-     else if (userChoice == "4"){
-        System.Console.WriteLine("exiting...");
-     }
-      }
+  
 
     }
 
