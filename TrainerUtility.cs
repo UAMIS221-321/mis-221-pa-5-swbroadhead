@@ -61,6 +61,7 @@ namespace Utility
          }
           Trainer.IncCount();
         }
+        WriteTrainersToFile();
         }
         //writes trainer array to file
         public void WriteTrainersToFile(){
@@ -99,17 +100,18 @@ namespace Utility
         if (!string.IsNullOrEmpty(newName)){
             editTrainer.SetName(newName);
         }
-        System.Console.WriteLine("Change trainer email? enter new email if so or leave blank to remain unchanged");
+        System.Console.WriteLine($"Change trainer email? \ncurrent email is {editTrainer.GetEmail()} \nenter new email if so or leave blank to remain unchanged");
         string nuEmail = Console.ReadLine();
         if (!string.IsNullOrEmpty(newName)){
             editTrainer.SetEmail(nuEmail);
         }
-        System.Console.WriteLine("Change mailing address? enter new address if so or leave blank to remain unchanged");
+        System.Console.WriteLine($"Change mailing address? \ncurrent address is {editTrainer.GetAddress()}\nenter new address if so or leave blank to remain unchanged");
         string nuAddress = Console.ReadLine();
         if (!string.IsNullOrEmpty(nuAddress)){
             editTrainer.SetAddress(nuAddress);
         }
-        System.Console.WriteLine("Trainer Information Updated");
+        System.Console.WriteLine($"Trainer {editTrainer.GetID()} Updated");
+        WriteTrainersToFile();
         System.Console.WriteLine("Would you like to edit another trainer? Enter yes to continue or no to return to the menu");
         choice = Console.ReadLine();
        }

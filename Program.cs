@@ -1,14 +1,18 @@
 ﻿//Start Main
 using mis_221_pa_5_swbroadhead;
 using Utility;
-TransactionUtility transaction = new TransactionUtility();
-ListingUtility list = new ListingUtility();
 TrainerUtility train = new TrainerUtility();
-Console.Clear();
-string userChoice = GetUserChoice();
+ListingUtility lists = new ListingUtility();
+TransactionUtility transaction = new TransactionUtility();
+Trainer[] trainers = train.GetAllTrainersFromFile();
+Listing[] listings = lists.GetAllListingsFromFile();
+Transaction[] transactions = transaction.GetAllTransactionsFromFile();
+Report report = new Report(transactions,listings,trainers);
+
+string userChoice = "";
 while (userChoice != "5"){
     userChoice = GetUserChoice();
-    Route(userChoice,train,list,transaction);
+    Route(userChoice,train,lists,transaction);
 }
 //End Main
 
@@ -39,7 +43,7 @@ static bool IsValidChoice(string userChoice){
     }
     else return false;
 }
-
+//routes based on userchoice
 static void Route(string userChoice,TrainerUtility train, ListingUtility list,TransactionUtility transaction)
 {
 if (userChoice == "1"){
@@ -51,6 +55,7 @@ if (userChoice == "2"){
 if (userChoice == "3"){
     TransactionMenu(transaction);
 }
+//menu for trainer functions
 }
  static string TrainerMenu(TrainerUtility train)
 {
@@ -80,6 +85,7 @@ if (userChoice == "3"){
      }
      return userChoice;
 } 
+//menu for listing functions
      static void ListingMenu(ListingUtility list){
         System.Console.WriteLine("Welcome to the listing menu");
         System.Console.WriteLine("Enter 1 to add new listing");
@@ -97,6 +103,7 @@ if (userChoice == "3"){
         }
         if (userChoice == "2"){
             list.EditListing();
+
         }
         if (userChoice == "3"){
             list.RemoveListing();
@@ -106,6 +113,7 @@ if (userChoice == "3"){
             GetUserChoice();
         }
      }
+     //menu for transaction or booking functions
 static void TransactionMenu(TransactionUtility transaction){
     System.Console.WriteLine("Welcome to the transactin menu");
     System.Console.WriteLine("Enter 1 to view available sessions");
@@ -131,4 +139,28 @@ static void TransactionMenu(TransactionUtility transaction){
         GetUserChoice();
     }
 
-}     
+}
+//menu for reporting functions
+static void ReportMenu(Report report){
+    System.Console.WriteLine("Welcome to the report menu");
+    System.Console.WriteLine("Enter 1 to view individual customer sessions");
+    System.Console.WriteLine("Enter 2 to view historical customer sessions");
+    System.Console.WriteLine("Enter 3 to view historical revenue reports");
+    System.Console.WriteLine("Enter 4 to exit");
+    string userChoice = Console.ReadLine();
+    if (userChoice == "1"){
+        report.IndivCustomerSessions();
+    }
+    if (userChoice == "2"){
+        report.HistoricalSessions();
+    }
+    if (userChoice == "3"){
+        System.Console.WriteLine("Couldn't get to work :(");
+        GetUserChoice();
+    }
+    if (userChoice == "4"){
+        System.Console.WriteLine("exiting...");
+        GetUserChoice();
+    }
+}
+     
